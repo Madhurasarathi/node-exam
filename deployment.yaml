@@ -1,0 +1,21 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: nodeexam
+  labels:
+    app: nodeexam
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: nodeexam
+  template:
+    metadata:
+      labels:
+        app: nodeexam
+    spec:
+      containers:
+      - name: nodeexam
+        image: madhurasr/nodeexam:v1
+        ports:
+        - containerPort: 3000
